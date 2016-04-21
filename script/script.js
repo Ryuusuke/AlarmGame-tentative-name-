@@ -1,12 +1,32 @@
 
 $(document).ready(function(){
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    var randomBall=Math.floor(Math.random()*650)
-    ctx.fillStyle = "#FF0000";
-    ctx.fillRect(0,0,650,400);
-    ctx.beginPath();
-    ctx.arc(95,50,40,0,2*Math.PI);
-    ctx.stroke();
+    var canvas = document.getElementById("myCanvas");
+    canvas.width=1000;
+    canvas.height=1000;
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(0,0,1000,1000);
+    var ball = new object();
+    var ballImage = new Image();
+    ballImage.src = "images/ball.png";
+    canvas = document.getElementById("myCanvas");
     
-})
+    
+    
+    //$("#myCanvas").
+    //Ball
+    function object() {
+        this.width = 10;
+        this.height = 10;
+        this.x = 150;
+        this.y = 50;
+    }
+    function render(){
+        ctx.drawImage(ballImage, ball.height, ball.width);
+        requestAnimationFrame(function() {
+        render();
+    });
+    }
+    render();
+    
+});
